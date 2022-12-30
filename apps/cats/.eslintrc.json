@@ -3,12 +3,6 @@
   "ignorePatterns": ["!**/*", ".expo", "node_modules", "web-build"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {
-        "@typescript-eslint/ban-ts-comment": "off"
-      }
-    },
-    {
       "files": ["*.ts", "*.tsx"],
       "rules": {}
     },
