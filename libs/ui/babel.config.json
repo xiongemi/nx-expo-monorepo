@@ -1,3 +1,11 @@
 {
-  "presets": ["babel-preset-expo"]
+  "presets": [
+    [
+      "@nrwl/react/babel",
+      {
+        "runtime": "automatic",
+        "useBuiltIns": "usage"
+      }
+    ]
+  ]
 }
