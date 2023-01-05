@@ -1,28 +1,34 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Card, Title, Text } from 'react-native-paper';
 
-import { Card, Title, Paragraph, FAB } from 'react-native-paper';
+export interface CarouselProps {
+  imageUri?: string;
+  title?: string;
+  content: string;
+}
 
-export interface CarouselProps {}
-
-export function Carousel(props: CarouselProps) {
+export function Carousel({ imageUri, title, content }: CarouselProps) {
   return (
-    <>
-      <Card>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-        <Card.Content>
-          <Title>Card title</Title>
-          <Paragraph>Card content</Paragraph>
-        </Card.Content>
-      </Card>
-      <View>
-        <FAB
-          icon="plus"
-          onPress={() => console.log('Pressed')}
-        />
-      </View>
-    </>
+    <Card mode="contained" testID="card">
+      {imageUri && <Card.Cover source={{ uri: imageUri }} />}
+      <Card.Content testID="card-content">
+        {title && <Title>{title}</Title>}
+        <View style={styles.content}>
+          <Text variant="bodyLarge">{content}</Text>
+        </View>
+      </Card.Content>
+    </Card>
   );
 }
+
+const styles = StyleSheet.create({
+  content: {
+    margin: 16,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default Carousel;

@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-expo-monorepo/queries/use-cat-fact": [
+        "libs/queries/use-cat-fact/src/index.ts"
+      ],
       "@pets/ui": ["libs/ui/src/index.ts"]
     }
   },
