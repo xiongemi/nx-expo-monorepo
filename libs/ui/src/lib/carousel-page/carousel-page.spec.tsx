@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import Facts from './facts';
+import CarouselPage from './carousel-page';
 
-describe('Facts', () => {
+describe('CarouselPage', () => {
   it('should render successfully', () => {
-    const { container } = render(<Facts />);
+    const { container } = render(<CarouselPage />);
     expect(container).toBeTruthy();
   });
 });

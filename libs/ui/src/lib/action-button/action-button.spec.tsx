@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import Facts from './facts';
+import ActionButton from './action-button';
 
-describe('Facts', () => {
+describe('ActionButton', () => {
   it('should render successfully', () => {
-    const { container } = render(<Facts />);
+    const { container } = render(<ActionButton />);
     expect(container).toBeTruthy();
   });
 });

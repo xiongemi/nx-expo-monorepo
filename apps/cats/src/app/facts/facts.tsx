@@ -1,47 +1,51 @@
-import { Carousel, CarouselActions } from '@pets/ui';
+import { useCatFact } from '@nx-expo-monorepo/queries/use-cat-fact';
+import { ActionButton, CarouselPage } from '@nx-expo-monorepo/ui';
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import { MD3Colors } from 'react-native-paper';
 
-/* eslint-disable-next-line */
-export interface FactsProps {}
+export function Facts() {
+  const { data, isLoading, isSuccess, isError, refetch, isFetching } =
+    useCatFact();
 
-export function Facts(props: FactsProps) {
   return (
-    <SafeAreaView testID="facts-page" style={styles.page}>
-      <ScrollView
-        contentContainerStyle={styles.carousel}
-        testID="facts-carousel"
-        centerContent={true}
-        contentInsetAdjustmentBehavior="automatic"
-      >
-        <Carousel
-          title="title"
-          content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    <CarouselPage
+      content={data}
+      isLoading={isLoading || isFetching}
+      isSuccess={isSuccess}
+      isError={isError}
+      onReload={refetch}
+    >
+      <>
+        <ActionButton
+          icon="arrow-left"
+          containerColor={MD3Colors.secondary80}
+          iconColor={MD3Colors.secondary50}
+          onPress={refetch}
+          isLoading={isLoading || isFetching}
+          isSuccess={isSuccess}
+          isError={isError}
         />
-      </ScrollView>
-      <View style={styles.carouselActions}>
-        <CarouselActions />
-      </View>
-    </SafeAreaView>
+        <ActionButton
+          icon="lightbulb"
+          containerColor={MD3Colors.error80}
+          iconColor={MD3Colors.error50}
+          onPress={refetch}
+          isLoading={isLoading || isFetching}
+          isSuccess={isSuccess}
+          isError={isError}
+        />
+        <ActionButton
+          icon="close"
+          containerColor={MD3Colors.primary80}
+          iconColor={MD3Colors.primary50}
+          onPress={refetch}
+          isLoading={isLoading || isFetching}
+          isSuccess={isSuccess}
+          isError={isError}
+        />
+      </>
+    </CarouselPage>
   );
 }
-
-const styles = StyleSheet.create({
-  page: {
-    display: 'flex',
-    height: '100%',
-  },
-  scrollView: {},
-  carousel: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    padding: 16,
-    display: 'flex',
-  },
-  carouselActions: {
-    marginVertical: 16,
-    marginHorizontal: 32,
-  },
-});
 
 export default Facts;

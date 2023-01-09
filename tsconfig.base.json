@@ -15,10 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-expo-monorepo/models": ["libs/models/src/index.ts"],
+      "@nx-expo-monorepo/queries/test-wrapper": [
+        "libs/queries/test-wrapper/src/index.ts"
+      ],
       "@nx-expo-monorepo/queries/use-cat-fact": [
         "libs/queries/use-cat-fact/src/index.ts"
       ],
-      "@pets/ui": ["libs/ui/src/index.ts"]
+      "@nx-expo-monorepo/queries/use-dog-fact": [
+        "libs/queries/use-dog-fact/src/index.ts"
+      ],
+      "@nx-expo-monorepo/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'queries-use-cat-fact',
+  displayName: 'queries-test-wrapper',
   resolver: '@nrwl/jest/plugins/resolver',
   preset: 'react-native',
   transformIgnorePatterns: [

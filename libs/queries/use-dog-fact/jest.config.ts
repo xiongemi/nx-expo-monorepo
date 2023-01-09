@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'queries-use-cat-fact',
+  displayName: 'queries-use-dog-fact',
   resolver: '@nrwl/jest/plugins/resolver',
   preset: 'react-native',
   transformIgnorePatterns: [

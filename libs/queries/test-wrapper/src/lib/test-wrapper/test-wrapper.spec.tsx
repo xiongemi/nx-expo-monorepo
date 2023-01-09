@@ -1,11 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import Facts from './facts';
+import TestWrapper from './test-wrapper';
 
-describe('Facts', () => {
+describe('TestWrapper', () => {
   it('should render successfully', () => {
-    const { container } = render(<Facts />);
+    const { container } = render(
+      <TestWrapper>
+        <>test</>
+      </TestWrapper>
+    );
     expect(container).toBeTruthy();
   });
 });
