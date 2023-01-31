@@ -5,6 +5,7 @@
   "scripts": {},
   "private": true,
   "devDependencies": {
+    "@config-plugins/detox": "^4.0.0",
     "@expo/cli": "0.4.11",
     "@expo/webpack-config": "0.17.4",
     "@nrwl/detox": "15.6.3",
