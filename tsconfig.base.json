@@ -25,6 +25,7 @@
       "@nx-expo-monorepo/queries/use-dog-fact": [
         "libs/queries/use-dog-fact/src/index.ts"
       ],
+      "@nx-expo-monorepo/states/cat": ["libs/states/cat/src/index.ts"],
       "@nx-expo-monorepo/ui": ["libs/ui/src/index.ts"]
     }
   },

@@ -20,44 +20,41 @@ export function Carousel({
   onReload,
 }: CarouselProps) {
   return (
-    <Card mode="contained" testID="carousel-card">
+    <Card mode="contained" testID="carousel-card" style={styles.carouselCard}>
       {isSuccess && (
         <>
           {imageUri && <Card.Cover source={{ uri: imageUri }} />}
           <Card.Content testID="carousel-card-content">
             {title && <Title>{title}</Title>}
-            <View style={styles.content}>
-              <Text variant="bodyLarge">{content}</Text>
-            </View>
+            <Text variant="bodyLarge">{content}</Text>
           </Card.Content>
         </>
       )}
       {isLoading && (
-        <View style={styles.content}>
-          <ActivityIndicator
-            animating={true}
-            size="large"
-            color={MD3Colors.primary50}
-          />
-        </View>
+        <ActivityIndicator
+          animating={true}
+          size="large"
+          color={MD3Colors.primary50}
+        />
       )}
       {isError && (
-        <View style={styles.content}>
+        <>
           <Text style={styles.error} variant="titleLarge">
             Failed to load
           </Text>
           <Button icon="alert" mode="contained" onPress={onReload}>
             Reload
           </Button>
-        </View>
+        </>
       )}
     </Card>
   );
 }
 
 const styles = StyleSheet.create({
-  content: {
-    margin: 16,
+  carouselCard: {
+    height: '100%',
+    padding: 16,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
