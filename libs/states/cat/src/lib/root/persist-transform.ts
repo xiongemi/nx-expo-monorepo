@@ -1,7 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
 import { createTransform } from 'redux-persist';
-
-import { BOOKMARKS_FEATURE_KEY } from '../../../../../../nx-expo-poetry/libs/store/src/lib/bookmarks/bookmarks.slice';
+import { LIKES_FEATURE_KEY } from '../likes/likes.slice';
 
 const transformEntityStateToPersist = createTransform(
   // transform state on its way to being serialized and persisted.
@@ -26,7 +25,7 @@ const transformEntityStateToPersist = createTransform(
     };
   },
   // define which reducers this transform gets called for.
-  { whitelist: [BOOKMARKS_FEATURE_KEY] }
+  { whitelist: [LIKES_FEATURE_KEY] }
 );
 
 export { transformEntityStateToPersist };

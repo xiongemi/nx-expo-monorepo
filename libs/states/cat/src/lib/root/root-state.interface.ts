@@ -1,4 +1,4 @@
-import { LikesState } from '../likes.slice';
+import { LikesState } from '../likes/likes.slice';
 
 export interface RootState {
   likes: LikesState;

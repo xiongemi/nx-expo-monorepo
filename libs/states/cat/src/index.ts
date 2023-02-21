@@ -1,0 +1,4 @@
+export * from './lib/likes/likes.slice';
+export * from './lib/root/persist-transform';
+export * from './lib/root/root-state.interface';
+export * from './lib/root/root.store';

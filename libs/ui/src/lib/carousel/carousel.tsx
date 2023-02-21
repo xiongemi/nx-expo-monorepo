@@ -1,12 +1,12 @@
 import { AsyncComponentProps } from '@nx-expo-monorepo/models';
 import React from 'react';
-import { View, StyleSheet, ActivityIndicator } from 'react-native';
+import { StyleSheet, ActivityIndicator } from 'react-native';
 import { Card, Title, Text, MD3Colors, Button } from 'react-native-paper';
 
 export interface CarouselProps extends AsyncComponentProps {
   imageUri?: string;
   title?: string;
-  content: string;
+  content?: string;
   onReload: () => void;
 }
 

@@ -10,6 +10,7 @@ declare const process: any;
 
 export const createRootStore = (persistConfig: PersistConfig<RootState>) => {
   const isDevelopment = process.env.NODE_ENV === 'development';
+  console.log(isDevelopment);
 
   const rootReducer = createRootReducer;
   const persistedReducer = persistReducer(persistConfig, rootReducer);
