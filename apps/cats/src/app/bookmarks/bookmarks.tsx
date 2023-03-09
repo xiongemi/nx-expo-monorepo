@@ -1,8 +1,9 @@
 import { ListPage } from '@nx-expo-monorepo/ui';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import React from 'react';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { connect } from 'react-redux';
 import { AppRoutes } from '../app-routes';
+import { RootStackParamList } from '../root-stack-param-list.type';
 
 import {
   BookmarksProps,
@@ -12,7 +13,8 @@ import {
 
 export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
   const route = useRoute<RouteProp<{ params: { edit: boolean } }>>();
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const edit = route.params?.edit;
 
   return (
@@ -21,7 +23,7 @@ export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
       editMode={edit}
       onRemove={removeBookmark}
       onGoToDetails={() => {
-        navigation.navigate(AppRoutes.catFacts);
+        navigation.push(AppRoutes.catFacts);
       }}
     ></ListPage>
   );

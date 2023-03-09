@@ -14,7 +14,7 @@ import { Loading } from '@nx-expo-monorepo/ui';
 import { Provider as StoreProvider } from 'react-redux';
 import { IconButton, Button } from 'react-native-paper';
 
-import Facts from '../facts/facts';
+import Facts from './facts/facts';
 import Bookmarks from './bookmarks/bookmarks';
 import { AppRoutes } from './app-routes';
 

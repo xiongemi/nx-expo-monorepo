@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 
 export interface TestWrapperProps {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 export function TestWrapper({ children }: TestWrapperProps) {
