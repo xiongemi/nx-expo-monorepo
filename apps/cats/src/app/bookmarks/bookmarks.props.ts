@@ -14,6 +14,7 @@ const mapStateToProps = (state: RootState) => {
         return {
           id: likes.id,
           description: likes.content,
+          title: new Date(likes.dateAdded).toLocaleDateString()
         };
       }),
   };

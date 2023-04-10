@@ -1,5 +1,5 @@
 import { ListPage } from '@nx-expo-monorepo/ui';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { connect } from 'react-redux';
 import { AppRoutes } from '../app-routes';
@@ -10,12 +10,28 @@ import {
   mapDispatchToProps,
   mapStateToProps,
 } from './bookmarks.props';
+import { useEffect, useState } from 'react';
+import { Button } from 'react-native-paper';
 
 export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
-  const route = useRoute<RouteProp<{ params: { edit: boolean } }>>();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const edit = route.params?.edit;
+  const [edit, setEdit] = useState(false);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button
+          icon="bookmark-minus"
+          onPress={() => {
+            setEdit(!edit);
+          }}
+        >
+          {edit ? 'Done' : 'Edit'}
+        </Button>
+      ),
+    });
+  }, [navigation, edit]);
 
   return (
     <ListPage

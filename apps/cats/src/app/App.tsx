@@ -12,7 +12,7 @@ import {
 } from '@nx-expo-monorepo/states/cat';
 import { Loading } from '@nx-expo-monorepo/ui';
 import { Provider as StoreProvider } from 'react-redux';
-import { IconButton, Button } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 
 import Facts from './facts/facts';
 import Bookmarks from './bookmarks/bookmarks';
@@ -28,7 +28,6 @@ const App = () => {
 
   const Stack = createNativeStackNavigator();
   const queryClient = new QueryClient();
-  let edit = false;
   return (
     <PersistGate loading={<Loading />} persistor={persistor}>
       <StoreProvider store={store}>
@@ -51,21 +50,6 @@ const App = () => {
               <Stack.Screen
                 name={AppRoutes.bookmarks}
                 component={Bookmarks}
-                options={({ navigation }) => ({
-                  headerRight: () => (
-                    <Button
-                      icon="bookmark-minus"
-                      onPress={() => {
-                        edit = !edit;
-                        navigation.navigate(AppRoutes.bookmarks, {
-                          edit,
-                        });
-                      }}
-                    >
-                      {edit ? 'Done' : 'Edit'}
-                    </Button>
-                  ),
-                })}
               />
             </Stack.Navigator>
           </NavigationContainer>

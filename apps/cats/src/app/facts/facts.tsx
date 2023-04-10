@@ -16,7 +16,7 @@ export function Facts({ like }: FactsProps) {
     like({
       id: uuidv4(),
       content: data,
-      dateAdded: new Date(),
+      dateAdded: Date.now(),
     });
     refetch();
   }, [data, like, refetch]);

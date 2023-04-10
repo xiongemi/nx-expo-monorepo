@@ -10,7 +10,7 @@ export const LIKES_FEATURE_KEY = 'likes';
 export interface LikesEntity {
   id: string;
   content: string;
-  dateAdded: Date;
+  dateAdded: number;
 }
 
 export type LikesState = EntityState<LikesEntity>;

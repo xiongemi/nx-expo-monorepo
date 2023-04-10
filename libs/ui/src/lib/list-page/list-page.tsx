@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, List, MD3Colors } from 'react-native-paper';
+import { List, MD3Colors } from 'react-native-paper';
 import Spacing from '../spacing/spacing';
 
 export interface ListPageProps {
