@@ -26,7 +26,14 @@
       "package": "com.exiong.cats"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "serviceWorker": {
+        "navigationPreload": true
+      },
+      "build": {
+        "publicUrl": "nx-expo-monorepo"
+      },
+      "bundler": "metro"
     },
     "plugins": ["@config-plugins/detox"],
     "extra": {
