@@ -1,5 +1,5 @@
 import { TestWrapper } from '@nx-expo-monorepo/queries/test-wrapper';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, waitFor } from '@testing-library/react-native';
 import MockAxios from 'jest-mock-axios';
 import { useCatFact } from './use-cat-fact';
 
@@ -9,7 +9,7 @@ describe('useCatFact', () => {
   });
 
   it('status should be success', async () => {
-    const { result, waitFor } = renderHook(() => useCatFact(), {
+    const { result } = renderHook(() => useCatFact(), {
       wrapper: TestWrapper,
     });
 
@@ -20,12 +20,12 @@ describe('useCatFact', () => {
 
     expect(result.current.isLoading).toBeTruthy();
 
-    await waitFor(() => result.current.isSuccess);
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
     expect(result.current.data).toEqual('random cat fact');
   });
 
   it('status should be error', async () => {
-    const { result, waitFor } = renderHook(() => useCatFact(), {
+    const { result } = renderHook(() => useCatFact(), {
       wrapper: TestWrapper,
     });
 
@@ -35,7 +35,7 @@ describe('useCatFact', () => {
 
     expect(result.current.isLoading).toBeTruthy();
 
-    await waitFor(() => result.current.isError);
+    await waitFor(() => expect(result.current.isError).toBe(true));
     expect(result.current.data).toEqual(undefined);
   });
 });

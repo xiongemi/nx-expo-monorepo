@@ -11,6 +11,8 @@
     "react-native-web": "*",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
+    "expo-constants": "*",
+    "expo-modules-core": "*",
     "react": "18.1.0"
   },
   "scripts": {

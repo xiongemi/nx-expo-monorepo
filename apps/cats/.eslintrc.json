@@ -1,6 +1,6 @@
 {
   "extends": ["plugin:@nrwl/nx/react", "../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*", ".expo", "node_modules", "web-build"],
+  "ignorePatterns": ["!**/*", ".expo", "node_modules", "web-build", "dist"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
