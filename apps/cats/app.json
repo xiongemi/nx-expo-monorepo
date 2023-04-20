@@ -35,7 +35,15 @@
       },
       "bundler": "metro"
     },
-    "plugins": ["@config-plugins/detox"],
+    "plugins": [
+      [
+        "@config-plugins/detox",
+        {
+          "skipProguard": false,
+          "subdomains": ["10.0.2.2", "localhost"]
+        }
+      ]
+    ],
     "extra": {
       "eas": {
         "projectId": "a6a590e7-f390-4003-881b-c8ae71dd10b2"
