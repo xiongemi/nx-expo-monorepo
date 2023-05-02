@@ -5,7 +5,7 @@
   "projectType": "application",
   "targets": {
     "start": {
-      "executor": "@nrwl/expo:start",
+      "executor": "@nx/expo:start",
       "options": {
         "port": 8081
       }
@@ -17,107 +17,73 @@
       }
     },
     "run-ios": {
-      "executor": "@nrwl/expo:run",
+      "executor": "@nx/expo:run",
       "options": {
         "platform": "ios"
       }
     },
     "run-android": {
-      "executor": "@nrwl/expo:run",
+      "executor": "@nx/expo:run",
       "options": {
         "platform": "android"
       }
     },
     "build": {
-      "executor": "@nrwl/expo:build",
+      "executor": "@nx/expo:build",
       "options": {}
     },
     "build-list": {
-      "executor": "@nrwl/expo:build-list",
+      "executor": "@nx/expo:build-list",
       "options": {}
     },
     "download": {
-      "executor": "@nrwl/expo:download",
+      "executor": "@nx/expo:download",
       "options": {
         "output": "apps/dogs/dist"
       }
     },
-    "build-ios": {
-      "executor": "@nrwl/expo:build-ios",
-      "options": {}
-    },
-    "build-android": {
-      "executor": "@nrwl/expo:build-android",
-      "options": {}
-    },
-    "build-web": {
-      "executor": "@nrwl/expo:build-web",
-      "options": {}
-    },
-    "build-status": {
-      "executor": "@nrwl/expo:build-web",
-      "options": {}
-    },
     "sync-deps": {
-      "executor": "@nrwl/expo:sync-deps",
+      "executor": "@nx/expo:sync-deps",
       "options": {}
     },
     "ensure-symlink": {
-      "executor": "@nrwl/expo:ensure-symlink",
-      "options": {}
-    },
-    "publish": {
-      "executor": "@nrwl/expo:publish",
-      "options": {}
-    },
-    "publish-set": {
-      "executor": "@nrwl/expo:publish-set",
-      "options": {}
-    },
-    "rollback": {
-      "executor": "@nrwl/expo:rollback",
+      "executor": "@nx/expo:ensure-symlink",
       "options": {}
     },
     "prebuild": {
-      "executor": "@nrwl/expo:prebuild",
+      "executor": "@nx/expo:prebuild",
       "options": {}
     },
-    "eject": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx prebuild dogs"
-      }
-    },
     "install": {
-      "executor": "@nrwl/expo:install",
+      "executor": "@nx/expo:install",
       "options": {}
     },
     "update": {
-      "executor": "@nrwl/expo:update",
+      "executor": "@nx/expo:update",
       "options": {}
     },
     "export": {
-      "executor": "@nrwl/expo:export",
+      "executor": "@nx/expo:export",
       "options": {
         "platform": "all",
         "outputDir": "../../dist/apps/dogs"
       }
     },
     "export-web": {
-      "executor": "@nrwl/expo:export",
+      "executor": "@nx/expo:export",
       "options": {
         "bundler": "webpack"
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/dogs/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/dogs/jest.config.ts",
