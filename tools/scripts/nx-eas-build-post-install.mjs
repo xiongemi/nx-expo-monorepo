@@ -1,17 +1,23 @@
 /**
- * This script is used to patch the `@nx/expo` package to work with EAS Build.
- * It is run as a eas-build-post-install script in the `package.json` of expo app.
- * It is executed as `node tools/scripts/nx-eas-build-post-install.mjs <workspace root> <project root>`
+ * This script is used to patch the '@nx/expo' package to work with EAS Build.
+ * It is run as a eas-build-post-install script in the 'package.json' of expo app.
+ * It is executed as 'node tools/scripts/nx-eas-build-post-install.mjs <workspace root> <project root>'
  * It will create a symlink from the project's node_modules to the workspace's node_modules.
  */
 
-import { ensureNodeModulesSymlink } from '@nx/expo/src/utils/ensure-node-modules-symlink.js';
+import { symlink, existsSync } from 'fs';
+import { join } from 'path';
 
 const [workspaceRoot, projectRoot] = process.argv.slice(2);
-if (!workspaceRoot) {
-  throw new Error('Missing workspace root');
+
+if (existsSync(join(workspaceRoot, 'node_modules'))) {
+  console.log('Symlink already exists');
+  process.exit(0);
 }
-if (!projectRoot) {
-  throw new Error('Missing project root');
-}
-ensureNodeModulesSymlink(projectRoot, workspaceRoot);
+
+symlink(join(projectRoot, 'node_modules'), join(workspaceRoot, 'node_modules'), 'dir', (err) => {
+  if (err) console.log(err);
+  else {
+    console.log('Symlink created');
+  }
+});
