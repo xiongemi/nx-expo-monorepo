@@ -1,6 +1,13 @@
 {
-  "testRunner": "jest",
-  "runnerConfig": "jest.config.json",
+  "testRunner": {
+    "args": {
+      "$0": "jest",
+      "config": "./jest.config.json"
+    },
+    "jest": {
+      "setupTimeout": 120000
+    }
+  },
   "apps": {
     "ios.debug": {
       "type": "ios.app",
@@ -12,18 +19,16 @@
       "build": "cd ../../apps/cats/ios && xcodebuild -workspace Cats.xcworkspace -scheme Cats -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13' -derivedDataPath ./build -quiet",
       "binaryPath": "../../apps/cats/ios/build/Build/Products/Release-iphonesimulator/Cats.app"
     },
-
     "ios.eas": {
       "type": "ios.app",
-      "build": "npx nx run cats:download --platform ios --distribution simulator --output=apps/cats/dist/",
+      "build": "npx nx run cats:download --platform ios --distribution simulator --output=../../apps/cats/dist/",
       "binaryPath": "../../apps/cats/dist/Cats.app"
     },
     "ios.local": {
       "type": "ios.app",
-      "build": "npx nx run cats:build --platform ios --profile preview --wait --local --no-interactive --output=apps/cats/dist/",
+      "build": "npx nx run cats:build --platform ios --profile preview --wait --local --no-interactive --output=../../apps/cats/dist/",
       "binaryPath": "../../apps/cats/dist/Cats.app"
     },
-
     "android.debug": {
       "type": "android.apk",
       "build": "cd ../../apps/cats/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
@@ -34,7 +39,6 @@
       "build": "cd ../../apps/cats/android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release",
       "binaryPath": "../../apps/cats/android/app/build/outputs/apk/release/app-release.apk"
     },
-
     "android.eas": {
       "type": "ios.app",
       "build": "npx nx run cats:download --platform android --output=apps/cats/dist/",
@@ -50,7 +54,7 @@
     "simulator": {
       "type": "ios.simulator",
       "device": {
-        "type": "iPhone 13"
+        "type": "iPhone SE (3rd generation)"
       }
     },
     "emulator": {
@@ -69,7 +73,6 @@
       "device": "simulator",
       "app": "ios.debug"
     },
-
     "ios.sim.eas": {
       "device": "simulator",
       "app": "ios.eas"
@@ -78,7 +81,6 @@
       "device": "simulator",
       "app": "ios.local"
     },
-
     "android.emu.release": {
       "device": "emulator",
       "app": "android.release"
@@ -87,7 +89,6 @@
       "device": "emulator",
       "app": "android.debug"
     },
-
     "android.emu.eas": {
       "device": "simulator",
       "app": "android.eas"

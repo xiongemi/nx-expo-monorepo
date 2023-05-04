@@ -1,12 +1,16 @@
 {
   "preset": "../../jest.preset",
-  "testEnvironment": "./environment",
+  "testEnvironment": "detox/runners/jest/testEnvironment",
+  "globalSetup": "detox/runners/jest/globalSetup",
+  "globalTeardown": "detox/runners/jest/globalTeardown",
   "testRunner": "jest-circus/runner",
   "testTimeout": 120000,
-  "reporters": ["detox/runners/jest/streamlineReporter"],
+  "reporters": ["detox/runners/jest/reporter"],
   "setupFilesAfterEnv": ["<rootDir>/test-setup.ts"],
-  "transform": {
-    "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "@nrwl/react/plugins/jest",
-    "^.+\\.[tj]sx?$": "babel-jest"
-  }
+  "rootDir": ".",
+  "testMatch": [
+    "<rootDir>/src/**/*.test.ts?(x)",
+    "<rootDir>/src/**/*.spec.ts?(x)"
+  ],
+  "verbose": true
 }
