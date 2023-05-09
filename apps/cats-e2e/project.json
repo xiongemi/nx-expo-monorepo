@@ -45,7 +45,7 @@
     "build-android": {
       "executor": "@nx/detox:build",
       "options": {
-        "detoxConfiguration": "android.emu.debug"
+        "detoxConfiguration": "android.emu.eas"
       },
       "configurations": {
         "local": {
@@ -63,20 +63,20 @@
       "executor": "@nx/detox:test",
       "options": {
         "detoxConfiguration": "android.emu.eas",
-        "buildTarget": "cats-e2e:build-ios"
+        "buildTarget": "cats-e2e:build-android"
       },
       "configurations": {
         "local": {
           "detoxConfiguration": "android.emu.local",
-          "buildTarget": "cats-e2e:build-ios:local"
+          "buildTarget": "cats-e2e:build-android:local"
         },
         "bare": {
           "detoxConfiguration": "android.emu.debug",
-          "buildTarget": "cats-e2e:build-ios:bare"
+          "buildTarget": "cats-e2e:build-android:bare"
         },
         "production": {
           "detoxConfiguration": "android.emu.release",
-          "buildTarget": "cats-e2e:build-ios:production"
+          "buildTarget": "cats-e2e:build-android:production"
         }
       }
     },

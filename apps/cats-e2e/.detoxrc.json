@@ -26,7 +26,7 @@
     },
     "ios.local": {
       "type": "ios.app",
-      "build": "EAS_LOCAL_BUILD_ARTIFACTS_DIR=../../apps/cats/dist npx nx run cats:build --platform ios --profile preview --wait --local --no-interactive",
+      "build": "npx nx run cats:build --platform ios --profile preview --wait --local --no-interactive --output=../../apps/cats/dist/Cats.tar.gz",
       "binaryPath": "../../apps/cats/dist/Cats.app"
     },
     "android.debug": {
@@ -46,7 +46,7 @@
     },
     "android.local": {
       "type": "android.apk",
-      "build": "npx nx run cats:build --platform android --profile preview --wait --local --no-interactive --output=apps/cats/dist/",
+      "build": "npx nx run cats:build --platform android --profile preview --wait --local --no-interactive --output=../../apps/cats/dist/Cats.apk",
       "binaryPath": "../../apps/cats/dist/Cats.apk"
     }
   },
