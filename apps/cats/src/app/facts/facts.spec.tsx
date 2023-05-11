@@ -29,11 +29,11 @@ describe('Facts', () => {
   });
 
   it('should render successfully', () => {
-    const { container } = render(
+    const { root } = render(
       <Provider store={store}>
         <Facts />
       </Provider>
     );
-    expect(container).toBeTruthy();
+    expect(root).toBeTruthy();
   });
 });

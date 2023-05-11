@@ -5,7 +5,7 @@ import ActionButton from './action-button';
 
 describe('ActionButton', () => {
   it('should render successfully', () => {
-    const { container } = render(<ActionButton />);
-    expect(container).toBeTruthy();
+    const { root } = render(<ActionButton />);
+    expect(root).toBeTruthy();
   });
 });

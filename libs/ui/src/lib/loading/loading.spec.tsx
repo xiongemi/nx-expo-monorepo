@@ -5,7 +5,7 @@ import Loading from './loading';
 
 describe('Loading', () => {
   it('should render successfully', () => {
-    const { container } = render(<Loading />);
-    expect(container).toBeTruthy();
+    const { root } = render(<Loading />);
+    expect(root).toBeTruthy();
   });
 });

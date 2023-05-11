@@ -5,7 +5,7 @@ import Carousel from './carousel';
 
 describe('Carousel', () => {
   it('should render successfully', () => {
-    const { container } = render(<Carousel title="title" content="content" />);
-    expect(container).toBeTruthy();
+    const { root } = render(<Carousel title="title" content="content" />);
+    expect(root).toBeTruthy();
   });
 });

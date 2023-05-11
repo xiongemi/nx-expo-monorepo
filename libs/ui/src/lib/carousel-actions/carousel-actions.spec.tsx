@@ -5,9 +5,9 @@ import CarouselActions from './carousel-actions';
 
 describe('CarouselActions', () => {
   it('should render successfully', () => {
-    const { container } = render(
+    const { root } = render(
       <CarouselActions close={jest.fn} like={jest.fn} previous={jest.fn} />
     );
-    expect(container).toBeTruthy();
+    expect(root).toBeTruthy();
   });
 });

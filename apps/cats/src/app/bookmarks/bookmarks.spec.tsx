@@ -17,11 +17,11 @@ describe('Bookmarks', () => {
   });
 
   it('should render successfully', () => {
-    const { container } = render(
+    const { root } = render(
       <Provider store={store}>
         <Bookmarks />
       </Provider>
     );
-    expect(container).toBeTruthy();
+    expect(root).toBeTruthy();
   });
 });

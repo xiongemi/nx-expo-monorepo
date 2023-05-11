@@ -21,12 +21,12 @@
     },
     "ios.eas": {
       "type": "ios.app",
-      "build": "npx nx run dogs:download --platform ios --distribution simulator --output=apps/dogs/dist/",
+      "build": "npx nx run dogs:download --platform ios --distribution simulator --output=../../apps/dogs-e2e/dist/",
       "binaryPath": "../../apps/dogs/dist/Dogs.app"
     },
     "ios.local": {
       "type": "ios.app",
-      "build": "npx nx run dogs:build --platform ios --profile preview --wait --local --no-interactive --output=apps/dogs/dist/",
+      "build": "npx nx run dogs:build --platform ios --configuration=debug --output=../../apps/dogs-e2e/dist/Dogs.tar.gz",
       "binaryPath": "../../apps/dogs/dist/Dogs.app"
     },
     "android.debug": {
@@ -40,13 +40,13 @@
       "binaryPath": "../../apps/dogs/android/app/build/outputs/apk/release/app-release.apk"
     },
     "android.eas": {
-      "type": "ios.app",
-      "build": "npx nx run dogs:download --platform android --output=apps/dogs/dist/",
+      "type": "android.apk",
+      "build": "npx nx run dogs:download --platform android --distribution simulator --output=../../apps/dogs-e2e/dist/",
       "binaryPath": "../../apps/dogs/dist/Dogs.apk"
     },
     "android.local": {
-      "type": "ios.app",
-      "build": "npx nx run dogs:build --platform android --profile preview --wait --local --no-interactive --output=apps/dogs/dist/",
+      "type": "android.apk",
+      "build": "npx nx run dogs:build --platform android --configuration=debug --output=../../apps/dogs-e2e/dist/Dogs.apk",
       "binaryPath": "../../apps/dogs/dist/Dogs.apk"
     }
   },

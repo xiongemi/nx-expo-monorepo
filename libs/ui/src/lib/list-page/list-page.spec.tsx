@@ -5,7 +5,7 @@ import ListPage from './list-page';
 
 describe('ListPage', () => {
   it('should render successfully', () => {
-    const { container } = render(
+    const { root } = render(
       <ListPage
         title="List Page"
         editMode={false}
@@ -14,6 +14,6 @@ describe('ListPage', () => {
         items={[]}
       />
     );
-    expect(container).toBeTruthy();
+    expect(root).toBeTruthy();
   });
 });

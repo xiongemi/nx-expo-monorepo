@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
-import Loading from './centre';
+import Centre from './centre';
 
-describe('Loading', () => {
+describe('Centre', () => {
   it('should render successfully', () => {
-    const { container } = render(<Loading />);
-    expect(container).toBeTruthy();
+    const { root } = render(<Centre>Hello</Centre>);
+    expect(root).toBeTruthy();
   });
 });

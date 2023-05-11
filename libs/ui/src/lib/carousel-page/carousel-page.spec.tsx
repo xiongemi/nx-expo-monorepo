@@ -5,7 +5,7 @@ import CarouselPage from './carousel-page';
 
 describe('CarouselPage', () => {
   it('should render successfully', () => {
-    const { container } = render(<CarouselPage />);
-    expect(container).toBeTruthy();
+    const { root } = render(<CarouselPage />);
+    expect(root).toBeTruthy();
   });
 });
