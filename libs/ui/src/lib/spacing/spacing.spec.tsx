@@ -1,11 +1,15 @@
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
-import Loading from './spacing';
+import Spacing from './spacing';
 
-describe('Loading', () => {
+describe('Spacing', () => {
   it('should render successfully', () => {
-    const { container } = render(<Loading />);
-    expect(container).toBeTruthy();
+    const { root } = render(
+      <Spacing>
+        <></>
+      </Spacing>
+    );
+    expect(root).toBeTruthy();
   });
 });

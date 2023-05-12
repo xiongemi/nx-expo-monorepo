@@ -12,6 +12,7 @@ export interface ListPageProps {
   }[];
   onRemove: (id: string) => void;
   onGoToDetails: (id: string) => void;
+  testID?: string;
 }
 
 export function ListPage({
@@ -20,9 +21,10 @@ export function ListPage({
   items,
   onRemove,
   onGoToDetails,
+  testID
 }: ListPageProps) {
   return (
-    <Spacing>
+    <Spacing testID={testID}>
       <List.Section title={title}>
         {items.map((item) => (
           <List.Item

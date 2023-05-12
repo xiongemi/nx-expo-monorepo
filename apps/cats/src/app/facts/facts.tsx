@@ -23,6 +23,7 @@ export function Facts({ like }: FactsProps) {
 
   return (
     <CarouselPage
+      testID="facts-page"
       content={data}
       isLoading={isLoading || isFetching}
       isSuccess={isSuccess}
@@ -31,6 +32,7 @@ export function Facts({ like }: FactsProps) {
     >
       <>
         <ActionButton
+          testID="back-button"
           icon="arrow-left"
           containerColor={MD3Colors.secondary80}
           iconColor={MD3Colors.secondary50}
@@ -40,6 +42,7 @@ export function Facts({ like }: FactsProps) {
           isError={isError}
         />
         <ActionButton
+          testID="like-button"
           icon="lightbulb"
           containerColor={MD3Colors.error80}
           iconColor={MD3Colors.error50}
@@ -49,6 +52,7 @@ export function Facts({ like }: FactsProps) {
           isError={isError}
         />
         <ActionButton
+          testID="next-button"
           icon="close"
           containerColor={MD3Colors.primary80}
           iconColor={MD3Colors.primary50}

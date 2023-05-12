@@ -7,13 +7,13 @@ import {
 } from '../carousel-actions/carousel-actions';
 import { Carousel, CarouselProps } from '../carousel/carousel';
 
-export interface CarouselPageProps
-  extends CarouselActionsProps,
-    CarouselProps {}
+export interface CarouselPageProps extends CarouselActionsProps, CarouselProps {
+  testID?: string;
+}
 
 export function CarouselPage(props: CarouselPageProps) {
   return (
-    <SafeAreaView testID="carousel-page" style={styles.page}>
+    <SafeAreaView testID={props.testID} style={styles.page}>
       <ScrollView
         contentContainerStyle={styles.carousel}
         testID="carousel-scroll-view"

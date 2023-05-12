@@ -46,7 +46,7 @@
     },
     "android.local": {
       "type": "android.apk",
-      "build": "npx nx run cats:build --platform android --configuration=debug --output=../../apps/cats-e2e/dist/Cats.apk",
+      "build": "npx nx run cats:build --platform android --profile preview --wait --local --no-interactive --output=../../apps/cats/dist/Cats.apk",
       "binaryPath": "../../apps/cats/dist/Cats.apk"
     }
   },

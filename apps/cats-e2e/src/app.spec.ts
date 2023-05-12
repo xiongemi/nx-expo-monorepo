@@ -5,7 +5,10 @@ describe('Cats', () => {
     await device.reloadReactNative();
   });
 
-  it('should display welcome message', async () => {
-    await expect(element(by.id('heading'))).toHaveText('Welcome Cats 👋');
+  it('should display carousel', async () => {
+    await waitFor(element(by.id('carousel-card')))
+      .toBeVisible()
+      .withTimeout(5000);
+    await expect(element(by.id('carousel-content'))).toBeVisible();
   });
 });

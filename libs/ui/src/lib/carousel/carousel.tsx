@@ -8,6 +8,7 @@ export interface CarouselProps extends AsyncComponentProps {
   title?: string;
   content?: string;
   onReload: () => void;
+  testID?: string;
 }
 
 export function Carousel({
@@ -25,13 +26,16 @@ export function Carousel({
         <>
           {imageUri && <Card.Cover source={{ uri: imageUri }} />}
           <Card.Content testID="carousel-card-content">
-            {title && <Title>{title}</Title>}
-            <Text variant="bodyLarge">{content}</Text>
+            {title && <Title testID="carousel-title">{title}</Title>}
+            <Text variant="bodyLarge" testID="carousel-text">
+              {content}
+            </Text>
           </Card.Content>
         </>
       )}
       {isLoading && (
         <ActivityIndicator
+          testID="carousel-loading"
           animating={true}
           size="large"
           color={MD3Colors.primary50}
@@ -39,7 +43,11 @@ export function Carousel({
       )}
       {isError && (
         <>
-          <Text style={styles.error} variant="titleLarge">
+          <Text
+            style={styles.error}
+            variant="titleLarge"
+            testID="carousel-failed"
+          >
             Failed to load
           </Text>
           <Button icon="alert" mode="contained" onPress={onReload}>

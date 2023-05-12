@@ -8,11 +8,13 @@ export interface ActionButtonProps extends AsyncComponentProps {
   containerColor: string;
   iconColor: string;
   onPress: () => void;
+  testID?: string;
 }
 
 export function ActionButton(props: ActionButtonProps) {
   return (
     <IconButton
+      testID={props.testID}
       mode="contained"
       animated={true}
       size={32}
