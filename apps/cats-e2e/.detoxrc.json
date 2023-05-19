@@ -21,12 +21,12 @@
     },
     "ios.eas": {
       "type": "ios.app",
-      "build": "npx nx run cats:download --platform ios --distribution simulator --output=../../apps/cats-e2e/dist/",
+      "build": "npx nx run cats:download --platform ios --distribution simulator --output=../../apps/cats/dist/",
       "binaryPath": "../../apps/cats/dist/Cats.app"
     },
     "ios.local": {
       "type": "ios.app",
-      "build": "npx nx run cats:build --platform ios --configuration=debug --output=../../apps/cats-e2e/dist/Cats.tar.gz",
+      "build": "npx nx run cats:build --platform ios --profile preview --wait --local --no-interactive --output=../../apps/cats/dist/Cats.tar.gz",
       "binaryPath": "../../apps/cats/dist/Cats.app"
     },
     "android.debug": {
@@ -41,7 +41,7 @@
     },
     "android.eas": {
       "type": "android.apk",
-      "build": "npx nx run cats:download --platform android --distribution simulator --output=../../apps/cats-e2e/dist/",
+      "build": "npx nx run cats:download --platform android --distribution simulator --output=../../apps/cats/dist/",
       "binaryPath": "../../apps/cats/dist/Cats.apk"
     },
     "android.local": {

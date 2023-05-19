@@ -10,19 +10,11 @@
     },
     {
       "cli": "nx",
-      "version": "16.1.4-beta.0",
-      "description": "Update package.json eas build lifecycle scripts",
-      "implementation": "./src/migrations/update-16-1-4/update-eas-scripts",
-      "package": "@nx/expo",
-      "name": "update-eas-scripts-16-1-4"
-    },
-    {
-      "version": "16.1.4-beta.0",
-      "cli": "nx",
-      "description": "Add app.json for detox",
-      "factory": "./src/migrations/update-16-1-4/add-detox-app-json",
-      "package": "@nx/expo",
-      "name": "add-detox-app-json-16-1-4"
+      "version": "16.2.0-beta.0",
+      "description": "Remove outputPath from run commands",
+      "implementation": "./src/migrations/update-16-2-0/remove-run-commands-output-path",
+      "package": "nx",
+      "name": "16.2.0-remove-output-path-from-run-commands"
     }
   ]
 }
