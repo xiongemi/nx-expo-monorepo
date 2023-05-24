@@ -59,7 +59,7 @@ export function Facts({
       }
     }
     onFetchFact();
-  }, [id, onFetchFact]);
+  }, [id, onFetchFact, getFactById]);
 
   return (
     <CarouselPage
