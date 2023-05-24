@@ -15,7 +15,9 @@ export interface LikesEntity {
 
 export type LikesState = EntityState<LikesEntity>;
 
-export const likesAdapter = createEntityAdapter<LikesEntity>();
+export const likesAdapter = createEntityAdapter<LikesEntity>({
+  selectId: (likes) => likes.id,
+});
 
 export const initialLikesState: LikesState = likesAdapter.getInitialState();
 
@@ -36,7 +38,7 @@ export const likesReducer = likesSlice.reducer;
 
 export const likesActions = likesSlice.actions;
 
-const { selectAll } = likesAdapter.getSelectors();
+const { selectAll, selectById } = likesAdapter.getSelectors();
 
 const getlikesState = <ROOT extends { likes: LikesState }>(
   rootState: ROOT
@@ -44,6 +46,10 @@ const getlikesState = <ROOT extends { likes: LikesState }>(
 
 const selectAllLikes = createSelector(getlikesState, selectAll);
 
+const getLikeById = (id: string) =>
+  createSelector(getlikesState, (state) => selectById(state, id));
+
 export const likesSelectors = {
   selectAllLikes,
+  getLikeById
 };

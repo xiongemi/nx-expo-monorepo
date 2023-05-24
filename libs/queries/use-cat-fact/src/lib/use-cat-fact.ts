@@ -10,5 +10,6 @@ export const useCatFact = () => {
   return useQuery({
     queryKey: ['cat-fact'],
     queryFn: fetchCatFact,
+    enabled: false,
   });
 };

@@ -22,7 +22,7 @@ export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
     navigation.setOptions({
       headerRight: () => (
         <Button
-          icon="bookmark-minus"
+          icon= {edit ? 'check' : 'book-edit'}
           onPress={() => {
             setEdit(!edit);
           }}
@@ -39,8 +39,8 @@ export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
       items={bookmarks}
       editMode={edit}
       onRemove={removeBookmark}
-      onGoToDetails={() => {
-        navigation.push(AppRoutes.catFacts);
+      onGoToDetails={(id: string) => {
+        navigation.push(AppRoutes.catFacts, { id });
       }}
     ></ListPage>
   );

@@ -13,6 +13,7 @@ import {
 import { Loading } from '@nx-expo-monorepo/ui';
 import { Provider as StoreProvider } from 'react-redux';
 import { IconButton } from 'react-native-paper';
+import 'react-native-get-random-values'; // import for uuid
 
 import Facts from './facts/facts';
 import Bookmarks from './bookmarks/bookmarks';
@@ -41,16 +42,14 @@ const App = () => {
                 options={({ navigation }) => ({
                   headerRight: () => (
                     <IconButton
+                      testID="bookmarks-button"
                       icon="lightbulb-multiple"
                       onPress={() => navigation.navigate(AppRoutes.bookmarks)}
                     />
                   ),
                 })}
               />
-              <Stack.Screen
-                name={AppRoutes.bookmarks}
-                component={Bookmarks}
-              />
+              <Stack.Screen name={AppRoutes.bookmarks} component={Bookmarks} />
             </Stack.Navigator>
           </NavigationContainer>
         </QueryClientProvider>
