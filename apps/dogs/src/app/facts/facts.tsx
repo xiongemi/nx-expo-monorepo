@@ -1,10 +1,10 @@
-import { useCatFact } from '@nx-expo-monorepo/queries/use-cat-fact';
 import { ActionButton, CarouselPage } from '@nx-expo-monorepo/ui';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { MD3Colors } from 'react-native-paper';
+import { useTheme } from 'react-native-paper';
 import { connect } from 'react-redux';
 import { FactsProps, mapDispatchToProps, mapStateToProps } from './facts.props';
 import { RouteProp, useRoute } from '@react-navigation/native';
+import { useDogFact } from '@nx-expo-monorepo/queries/use-dog-fact';
 
 export function Facts({
   like,
@@ -18,15 +18,18 @@ export function Facts({
   const [isLoading, setIsLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [fact, setFact] = useState<string | undefined>(undefined);
+  const [fact, setFact] = useState<{
+    id: string;
+    content: string;
+  }>();
 
-  const { refetch } = useCatFact();
+  const { refetch } = useDogFact();
 
   const onFetchFact = useCallback(() => {
     refetch().then((queryResult) => {
       if (queryResult.data) {
         setFact(queryResult.data);
-        viewed(queryResult.data);
+        viewed(queryResult.data.id, queryResult.data.content);
       }
       setIsLoading(queryResult.isLoading || queryResult.isFetching);
       setIsSuccess(queryResult.isSuccess);
@@ -36,22 +39,22 @@ export function Facts({
 
   const onLikePress = useCallback(() => {
     if (!fact) return;
-    like(fact);
+    like(fact.id, fact.content);
     onFetchFact();
   }, [fact, like, onFetchFact]);
 
   const onBackPress = useCallback(() => {
     if (!getLastViewedFact?.content) return;
-    setFact(getLastViewedFact?.content);
+    setFact(getLastViewedFact);
     removeFromViewed(getLastViewedFact?.id);
   }, [removeFromViewed, getLastViewedFact]);
 
   useEffect(() => {
     if (id.current) {
-      const content = getFactById(id.current)?.content;
-      if (content) {
-        setFact(content);
-        viewed(content, id.current);
+      const factForRouteId = getFactById(id.current);
+      if (factForRouteId) {
+        setFact(factForRouteId);
+        viewed(factForRouteId.id, factForRouteId.content);
         id.current = undefined;
         setIsLoading(false);
         setIsSuccess(true);
@@ -62,10 +65,12 @@ export function Facts({
     onFetchFact();
   }, [id, onFetchFact]);
 
+  const theme = useTheme();
+
   return (
     <CarouselPage
       testID="facts-page"
-      content={fact}
+      content={fact?.content}
       isLoading={isLoading}
       isSuccess={isSuccess}
       isError={isError}
@@ -75,8 +80,8 @@ export function Facts({
         <ActionButton
           testID="back-button"
           icon="arrow-left"
-          containerColor={MD3Colors.secondary80}
-          iconColor={MD3Colors.secondary50}
+          containerColor={theme.colors.tertiaryContainer}
+          iconColor={theme.colors.tertiary}
           disabled={!getLastViewedFact?.content}
           onPress={onBackPress}
           isLoading={isLoading}
@@ -85,9 +90,9 @@ export function Facts({
         />
         <ActionButton
           testID="like-button"
-          icon="lightbulb"
-          containerColor={MD3Colors.error80}
-          iconColor={MD3Colors.error50}
+          icon="bone"
+          containerColor={theme.colors.errorContainer}
+          iconColor={theme.colors.error}
           onPress={onLikePress}
           isLoading={isLoading}
           isSuccess={isSuccess}
@@ -95,9 +100,9 @@ export function Facts({
         />
         <ActionButton
           testID="next-button"
-          icon="close"
-          containerColor={MD3Colors.primary80}
-          iconColor={MD3Colors.primary50}
+          icon="arrow-right"
+          containerColor={theme.colors.primaryContainer}
+          iconColor={theme.colors.primary}
           onPress={onFetchFact}
           isLoading={isLoading}
           isSuccess={isSuccess}

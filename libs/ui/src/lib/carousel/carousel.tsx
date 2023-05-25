@@ -1,7 +1,13 @@
 import { AsyncComponentProps } from '@nx-expo-monorepo/models';
 import React from 'react';
 import { StyleSheet, ActivityIndicator } from 'react-native';
-import { Card, Title, Text, MD3Colors, Button } from 'react-native-paper';
+import {
+  Card,
+  Title,
+  Text,
+  Button,
+  useTheme,
+} from 'react-native-paper';
 
 export interface CarouselProps extends AsyncComponentProps {
   imageUri?: string;
@@ -20,6 +26,21 @@ export function Carousel({
   isLoading,
   onReload,
 }: CarouselProps) {
+  const theme = useTheme();
+  const styles = StyleSheet.create({
+    carouselCard: {
+      height: '100%',
+      padding: 16,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.colors.secondaryContainer,
+      color: theme.colors.secondary,
+    },
+    error: {
+      color: theme.colors.error,
+    },
+  });
   return (
     <Card mode="contained" testID="carousel-card" style={styles.carouselCard}>
       {isSuccess && (
@@ -38,7 +59,7 @@ export function Carousel({
           testID="carousel-loading"
           animating={true}
           size="large"
-          color={MD3Colors.primary50}
+          color={theme.colors.tertiary}
         />
       )}
       {isError && (
@@ -48,7 +69,7 @@ export function Carousel({
             variant="titleLarge"
             testID="carousel-failed"
           >
-            Failed to load
+            Failed to load. Please make sure you are connected to network.
           </Text>
           <Button icon="alert" mode="contained" onPress={onReload}>
             Reload
@@ -58,18 +79,5 @@ export function Carousel({
     </Card>
   );
 }
-
-const styles = StyleSheet.create({
-  carouselCard: {
-    height: '100%',
-    padding: 16,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  error: {
-    color: MD3Colors.error50,
-  },
-});
 
 export default Carousel;
