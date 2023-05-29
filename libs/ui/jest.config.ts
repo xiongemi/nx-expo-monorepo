@@ -9,6 +9,5 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/test-setup.ts'],
   moduleNameMapper: {
     '.svg': '@nx/expo/plugins/jest/svg-mock',
-    uuid: require.resolve('uuid'),
   },
 };

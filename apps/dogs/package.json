@@ -8,7 +8,22 @@
     "react-native": "*",
     "expo": "*",
     "react-native-svg": "*",
-    "react-native-web": "*"
+    "react-native-web": "*",
+    "@nx/expo": "*",
+    "@expo/metro-config": "*",
+    "react": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "@tanstack/react-query": "*",
+    "@tanstack/react-query-devtools": "*",
+    "@react-native-async-storage/async-storage": "*",
+    "redux-persist": "*",
+    "@reduxjs/toolkit": "*",
+    "redux-logger": "*",
+    "react-native-paper": "*",
+    "react-redux": "*",
+    "redux-mock-store": "*",
+    "axios": "*"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && cp package-lock.json ./apps/dogs/",

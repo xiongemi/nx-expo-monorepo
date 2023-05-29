@@ -8,7 +8,6 @@ import {
   viewFactsSelectors,
 } from '@nx-expo-monorepo/states/cat';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 
 const mapStateToProps = (state: RootState) => {
   return {
@@ -24,7 +23,7 @@ const mapDispatchToProps = (
     like(content: string) {
       dispatch(
         likesActions.like({
-          id: uuidv4(),
+          id: new Date().getTime().toString(),
           content,
           dateAdded: Date.now(),
         } as LikesEntity)
@@ -33,7 +32,7 @@ const mapDispatchToProps = (
     viewed(content: string, id?: string) {
       dispatch(
         viewedFactsActions.add({
-          id: id ?? uuidv4(),
+          id: id || new Date().getTime().toString(),
           content,
         } as ViewedFactsEntity)
       );
