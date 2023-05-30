@@ -72,6 +72,7 @@
     "export-web": {
       "executor": "@nx/expo:export",
       "options": {
+        "platform": "web",
         "bundler": "metro"
       }
     },

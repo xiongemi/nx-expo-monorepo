@@ -13,7 +13,6 @@ import {
 import { Loading } from '@nx-expo-monorepo/ui';
 import { Provider as StoreProvider } from 'react-redux';
 import { IconButton, PaperProvider } from 'react-native-paper';
-import 'react-native-get-random-values'; // import for uuid
 
 import Facts from './facts/facts';
 import Bookmarks from './bookmarks/bookmarks';
