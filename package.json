@@ -11,15 +11,15 @@
   "devDependencies": {
     "@config-plugins/detox": "^5.0.1",
     "@expo/cli": "0.7.1",
-    "@nx/detox": "16.2.1",
-    "@nx/eslint-plugin": "16.2.1",
-    "@nx/expo": "16.2.1",
-    "@nx/jest": "16.2.1",
-    "@nx/js": "16.2.1",
-    "@nx/linter": "16.2.1",
-    "@nx/rollup": "16.2.1",
-    "@nx/web": "16.2.1",
-    "@nx/workspace": "16.2.1",
+    "@nx/detox": "16.3.2",
+    "@nx/eslint-plugin": "16.3.2",
+    "@nx/expo": "16.3.2",
+    "@nx/jest": "16.3.2",
+    "@nx/js": "16.3.2",
+    "@nx/linter": "16.3.2",
+    "@nx/rollup": "16.3.2",
+    "@nx/web": "16.3.2",
+    "@nx/workspace": "16.3.2",
     "@react-native-async-storage/async-storage": "1.17.11",
     "@reduxjs/toolkit": "1.9.3",
     "@svgr/webpack": "^6.5.1",
@@ -52,7 +52,7 @@
     "jest-environment-jsdom": "29.4.3",
     "metro": "0.74.1",
     "metro-resolver": "~0.74.1",
-    "nx": "16.2.1",
+    "nx": "16.3.2",
     "prettier": "^2.6.2",
     "react-redux": "^8.0.5",
     "react-test-renderer": "18.2.0",
@@ -86,3 +86,4 @@
     "tslib": "^2.3.0"
   }
 }
+
