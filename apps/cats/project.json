@@ -62,6 +62,10 @@
       "executor": "@nx/expo:update",
       "options": {}
     },
+    "submit": {
+      "executor": "@nx/expo:submit",
+      "options": {}
+    },
     "export": {
       "executor": "@nx/expo:export",
       "options": {

@@ -24,13 +24,11 @@
     "test-ios": {
       "executor": "@nx/detox:test",
       "options": {
-        "detoxConfiguration": "ios.sim.eas",
-        "buildTarget": "cats-e2e:build-ios:eas"
+        "detoxConfiguration": "ios.sim.eas"
       },
       "configurations": {
         "local": {
-          "detoxConfiguration": "ios.sim.local",
-          "buildTarget": "cats-e2e:build-ios:local"
+          "detoxConfiguration": "ios.sim.local"
         },
         "bare": {
           "detoxConfiguration": "ios.sim.debug",
