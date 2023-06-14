@@ -2,7 +2,7 @@
   "expo": {
     "name": "Dog Facts",
     "slug": "dogs",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -25,7 +25,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.exiong.dogs"
+      "package": "com.exiong.dogs",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png",

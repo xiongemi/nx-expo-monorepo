@@ -54,7 +54,7 @@
     "simulator": {
       "type": "ios.simulator",
       "device": {
-        "type": "iPhone 14 Pro"
+        "id": "C1DD546E-3C21-42A2-BCBC-F45818690270"
       }
     },
     "emulator": {

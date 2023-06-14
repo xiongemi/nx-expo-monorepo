@@ -6,7 +6,6 @@
   "testRunner": "jest-circus/runner",
   "testTimeout": 120000,
   "reporters": ["detox/runners/jest/reporter"],
-  "setupFilesAfterEnv": ["<rootDir>/test-setup.ts"],
   "rootDir": ".",
   "testMatch": [
     "<rootDir>/src/**/*.test.ts?(x)",

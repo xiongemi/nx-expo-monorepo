@@ -26,7 +26,7 @@
     "axios": "*"
   },
   "scripts": {
-    "eas-build-pre-install": "cd ../../ && cp package-lock.json ./apps/dogs/",
-    "postinstall": "rm -r node_modules && cd ../../ && npm install && npx nx sync-deps dogs && npx nx ensure-symlink dogs"
+    "eas-build-pre-install": "cd ../../ && node tools/scripts/nx-eas-build-pre-install.mjs . apps/dogs && cp package-lock.json apps/dogs",
+    "eas-build-post-install": "cd ../../ && node tools/scripts/nx-eas-build-post-install.mjs . apps/dogs"
   }
 }
