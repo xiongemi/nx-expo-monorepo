@@ -29,6 +29,7 @@
     "react-native-paper": "*",
     "react-redux": "*",
     "redux-mock-store": "*",
-    "axios": "*"
+    "axios": "*",
+    "expo-updates": "*"
   }
 }
