@@ -2,19 +2,11 @@
   "migrations": [
     {
       "cli": "nx",
-      "version": "16.1.4-beta.0",
-      "description": "Update .detoxrc.json for expo",
-      "implementation": "./src/migrations/update-16-1-4/update-detoxrc-json-expo",
-      "package": "@nx/detox",
-      "name": "update-detoxrc-json-expo-16-1-4"
-    },
-    {
-      "cli": "nx",
-      "version": "16.2.0-beta.0",
-      "description": "Remove outputPath from run commands",
-      "implementation": "./src/migrations/update-16-2-0/remove-run-commands-output-path",
-      "package": "nx",
-      "name": "16.2.0-remove-output-path-from-run-commands"
+      "version": "16.5.0-beta.2",
+      "description": "Add test-setup.ts to ignored files in production input",
+      "implementation": "./src/migrations/update-16-5-0/add-test-setup-to-inputs-ignore",
+      "package": "@nx/jest",
+      "name": "add-test-setup-to-inputs-ignore"
     }
   ]
 }
