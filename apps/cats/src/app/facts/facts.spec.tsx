@@ -12,7 +12,7 @@ jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
     data: 'random cat fact',
     isLoading: false,
     isSuccess: true,
-    refetch: jest.fn(),
+    refetch: jest.fn().mockReturnValue(Promise.resolve('random cat fact')),
     isFetching: false,
     isError: false,
   })

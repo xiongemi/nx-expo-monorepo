@@ -15,7 +15,7 @@ jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
     },
     isLoading: false,
     isSuccess: true,
-    refetch: jest.fn(),
+    refetch: jest.fn().mockReturnValue(Promise.resolve('random dog fact')),
     isFetching: false,
     isError: false,
   })
