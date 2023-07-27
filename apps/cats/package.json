@@ -30,6 +30,7 @@
     "react-redux": "*",
     "redux-mock-store": "*",
     "axios": "*",
-    "expo-updates": "*"
+    "expo-updates": "*",
+    "metro-config": "*"
   }
 }
