@@ -7,7 +7,6 @@ describe('ListPage', () => {
   it('should render successfully', () => {
     const { root } = render(
       <ListPage
-        title="List Page"
         editMode={false}
         onRemove={jest.fn()}
         onGoToDetails={jest.fn()}

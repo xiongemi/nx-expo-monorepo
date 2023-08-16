@@ -31,6 +31,8 @@
     "redux-mock-store": "*",
     "axios": "*",
     "expo-updates": "*",
-    "metro-config": "*"
+    "metro-config": "*",
+    "react-native-svg-transformer": "*",
+    "jest-fetch-mock": "*"
   }
 }

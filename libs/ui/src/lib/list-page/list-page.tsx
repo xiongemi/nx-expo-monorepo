@@ -1,10 +1,9 @@
 import React from 'react';
-import { Divider, List, MD3Colors } from 'react-native-paper';
+import { Card, Text, Button } from 'react-native-paper';
 import Spacing from '../spacing/spacing';
-import { View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 export interface ListPageProps {
-  title?: string;
   editMode: boolean;
   items: {
     id: string;
@@ -17,7 +16,6 @@ export interface ListPageProps {
 }
 
 export function ListPage({
-  title,
   editMode,
   items,
   onRemove,
@@ -26,30 +24,47 @@ export function ListPage({
 }: ListPageProps) {
   return (
     <Spacing testID={testID}>
-      <List.Section title={title}>
-        {items.map((item) => (
-          <View key={item.id}>
-            <List.Item
-              title={item.title}
-              description={item.description}
-              left={() =>
-                editMode && (
-                  <List.Icon color={MD3Colors.error50} icon="minus-circle" />
-                )
-              }
-              right={(props) =>
-                !editMode && <List.Icon {...props} icon="chevron-right" />
-              }
-              onPress={() =>
-                editMode ? onRemove(item.id) : onGoToDetails(item.id)
-              }
-            />
-            <Divider />
-          </View>
-        ))}
-      </List.Section>
+      <ScrollView>
+        <View style={styles.grid}>
+          {items.map((item) => (
+            <Card
+              key={item.id}
+              style={styles.item}
+              onPress={() => onGoToDetails(item.id)}
+            >
+              <Card.Title title={item.title} />
+              <Card.Content>
+                <Text variant="bodyLarge">
+                  {item.description.slice(0, 80)}...
+                </Text>
+              </Card.Content>
+              {editMode && (
+                <Card.Actions>
+                  <Button onPress={() => onRemove(item.id)}>Delete</Button>
+                </Card.Actions>
+              )}
+            </Card>
+          ))}
+        </View>
+      </ScrollView>
     </Spacing>
   );
 }
+
+const styles = StyleSheet.create({
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    padding: 4,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    spaceBetween: 4,
+    height: '100%',
+  },
+  item: {
+    width: '48%',
+    margin: 2,
+  },
+});
 
 export default ListPage;
