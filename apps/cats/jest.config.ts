@@ -11,4 +11,5 @@ module.exports = {
   moduleNameMapper: {
     '.svg': '@nx/expo/plugins/jest/svg-mock'
   },
+  coverageDirectory: '../../coverage/apps/cats',
 };

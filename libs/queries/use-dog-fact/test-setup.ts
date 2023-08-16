@@ -1,3 +1,5 @@
 import '@testing-library/jest-native/extend-expect';
 
-jest.mock('axios', () => jest.requireActual('jest-mock-axios'));
+import fetchMock from 'jest-fetch-mock';
+
+fetchMock.enableMocks();

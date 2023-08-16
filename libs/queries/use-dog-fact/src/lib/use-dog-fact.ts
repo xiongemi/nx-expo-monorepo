@@ -1,14 +1,14 @@
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 export const fetchDogFact = async (): Promise<{
   id: string;
   content: string;
 }> => {
-  const { data } = await axios.get<{
+  const response = await fetch('https://dogapi.dog/api/v2/facts?limit=1');
+  const responseJson: {
     data: { id: string; type: string; attributes: { body: string } }[];
-  }>('https://dogapi.dog/api/v2/facts?limit=1');
-  const responseContent = data?.data?.[0];
+  } = await response.json();
+  const responseContent = responseJson?.data?.[0];
 
   if (!responseContent) {
     throw new Error('No content in response');

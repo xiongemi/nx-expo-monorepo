@@ -23,7 +23,7 @@
     "react-native-paper": "*",
     "react-redux": "*",
     "redux-mock-store": "*",
-    "axios": "*"
+    "metro-config": "*"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && node tools/scripts/nx-eas-build-pre-install.mjs . apps/dogs && cp package-lock.json apps/dogs",

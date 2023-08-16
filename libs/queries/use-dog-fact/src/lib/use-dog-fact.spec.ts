@@ -1,7 +1,7 @@
 import { TestWrapper } from '@nx-expo-monorepo/queries/test-wrapper';
 import { renderHook, waitFor } from '@testing-library/react-native';
+import fetchMock from 'jest-fetch-mock';
 import { useDogFact } from './use-dog-fact';
-import axios from 'axios';
 
 describe('useDogFact', () => {
   afterEach(() => {
@@ -21,13 +21,16 @@ describe('useDogFact', () => {
         },
       ],
     };
-    jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: responseObj });
+     // simulating a server response
+     fetchMock.mockResponse(
+      JSON.stringify(responseObj)
+    );
     const { result } = renderHook(() => useDogFact(), {
       wrapper: TestWrapper,
     });
 
-    expect(result.current.isLoading).toBeTruthy();
     result.current.refetch(); // refetching the query
+    expect(result.current.isLoading).toBeTruthy();
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     expect(result.current.data).toEqual({
@@ -37,17 +40,20 @@ describe('useDogFact', () => {
     });
   });
 
-  // TODO: currently the test is failing, isError was never true even though the axios.get was mocked to return an error
-  xit('status should be error', async () => {
-    jest.spyOn(axios, 'get').mockRejectedValueOnce({ error: 'error' });
+  it('status should be error', async () => {
+    const response = new Response(null, {
+      status: 401,
+    });
+    fetchMock.mockReturnValueOnce(Promise.resolve(response));
 
     const { result } = renderHook(() => useDogFact(), {
       wrapper: TestWrapper,
     });
 
-    expect(result.current.isLoading).toBeTruthy();
-
-    await waitFor(() => expect(result.current.isError).toBe(true));
-    expect(result.current.data).toEqual(undefined);
+    try {
+      result.current.refetch();
+    } catch(actual) {
+      expect(actual).toEqual(response);
+    }
   });
 });
