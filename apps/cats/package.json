@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "eas-build-pre-install": "cd ../../ && node tools/scripts/nx-eas-build-pre-install.mjs . apps/cats && cp package-lock.json apps/cats",
-    "eas-build-post-install": "cd ../../ && node tools/scripts/nx-eas-build-post-install.mjs . apps/cats",
+    "eas-build-pre-install": "cd ../../ && node tools/scripts/eas-build-pre-install.mjs . apps/cats && cp package-lock.json apps/cats",
+    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/cats",
     "eas-local": "EAS_LOCAL_BUILD_SKIP_CLEANUP=1 EAS_LOCAL_BUILD_WORKINGDIR=/Users/emilyxiong/Code/tmp/eas-cats-ios eas build --platform=ios --profile=preview --no-wait --local",
     "start": "expo start --dev-client",
     "android": "expo run:android",
