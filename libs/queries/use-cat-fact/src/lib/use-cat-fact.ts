@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
-export const fetchCatFact = async (): Promise<string> => {
-  const response = await fetch('https://catfact.ninja/fact');
-  const data = await response.json();
-  return data.fact;
+export const fetchCatFact = async (): Promise<string | void> => {
+  const response = await axios.get('https://catfact.ninja/fact');
+  return response.data.fact;
 };
 
 export const useCatFact = () => {
@@ -11,5 +11,6 @@ export const useCatFact = () => {
     queryKey: ['cat-fact'],
     queryFn: fetchCatFact,
     enabled: false,
+    retry: false,
   });
 };

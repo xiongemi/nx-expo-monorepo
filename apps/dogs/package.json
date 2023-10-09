@@ -23,7 +23,9 @@
     "react-native-paper": "*",
     "react-redux": "*",
     "redux-mock-store": "*",
-    "metro-config": "*"
+    "metro-config": "*",
+    "react-native-svg-transformer": "*",
+    "jest-fetch-mock": "*"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && node tools/scripts/nx-eas-build-pre-install.mjs . apps/dogs && cp package-lock.json apps/dogs",
