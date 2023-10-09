@@ -1,22 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { render, waitFor } from '@testing-library/react-native';
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
 import { RootState, initialRootState } from '@nx-expo-monorepo/states/cat';
-import * as ReactQuery from '@tanstack/react-query';
+import fetchMock from 'jest-fetch-mock';
 
 import Facts from './facts';
 import { Provider } from 'react-redux';
-
-jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
-  jest.fn().mockReturnValue({
-    data: 'random cat fact',
-    isLoading: false,
-    isSuccess: true,
-    refetch: jest.fn().mockReturnValue(Promise.resolve('random cat fact')),
-    isFetching: false,
-    isError: false,
-  })
-);
+import { TestWrapper } from '@nx-expo-monorepo/queries/test-wrapper';
 
 describe('Facts', () => {
   const mockStore = configureStore<RootState>([]);
@@ -28,12 +18,29 @@ describe('Facts', () => {
     store.dispatch = jest.fn();
   });
 
-  it('should render successfully', () => {
-    const { root } = render(
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('should render successfully', async () => {
+    // simulating a server response
+    fetchMock.mockResponseOnce(
+      JSON.stringify({
+        fact: 'random cat fact',
+      })
+    );
+    const { root, findByTestId } = render(
       <Provider store={store}>
         <Facts />
-      </Provider>
+      </Provider>,
+      {
+        wrapper: TestWrapper,
+      }
     );
     expect(root).toBeTruthy();
+    expect(findByTestId('carousel-loading')).toBeTruthy();
+    await waitFor(() =>
+      expect(findByTestId('carousel-card-content')).toBeTruthy()
+    );
   });
 });

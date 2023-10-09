@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 
 export const fetchCatFact = async (): Promise<string | void> => {
-  const response = await axios.get('https://catfact.ninja/fact');
-  return response.data.fact;
+  const response = await fetch('https://catfact.ninja/fact');
+  const data = await response.json();
+  return data.fact;
 };
 
 export const useCatFact = () => {

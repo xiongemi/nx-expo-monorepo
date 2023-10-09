@@ -5,6 +5,7 @@ import { MD3Colors } from 'react-native-paper';
 import { connect } from 'react-redux';
 import { FactsProps, mapDispatchToProps, mapStateToProps } from './facts.props';
 import { RouteProp, useRoute } from '@react-navigation/native';
+import { QueryObserverResult } from '@tanstack/react-query';
 
 export function Facts({
   like,
@@ -15,6 +16,8 @@ export function Facts({
 }: FactsProps) {
   const route = useRoute<RouteProp<{ params: { id: string } }>>();
   const id = useRef<string | undefined>(route.params?.id);
+  const [queryResult, setQueryResult] =
+    useState<QueryObserverResult<string | void>>();
   const [isLoading, setIsLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -24,15 +27,22 @@ export function Facts({
 
   const onFetchFact = useCallback(() => {
     refetch().then((queryResult) => {
-      if (queryResult.data) {
-        setFact(queryResult.data);
-        viewed(queryResult.data);
-      }
-      setIsLoading(queryResult.isLoading || queryResult.isFetching);
-      setIsSuccess(queryResult.isSuccess);
-      setIsError(queryResult.isError);
+      setQueryResult(queryResult);
     });
-  }, [refetch, viewed]);
+  }, [refetch]);
+
+  useEffect(() => {
+    if (!queryResult) {
+      return;
+    }
+    if (queryResult.data) {
+      setFact(queryResult.data);
+      viewed(queryResult.data);
+    }
+    setIsLoading(queryResult.isLoading || queryResult.isFetching);
+    setIsSuccess(queryResult.isSuccess);
+    setIsError(queryResult.isError);
+  }, [queryResult, viewed]);
 
   const onLikePress = useCallback(() => {
     if (!fact) return;
@@ -46,18 +56,26 @@ export function Facts({
     removeFromViewed(getLastViewedFact?.id);
   }, [removeFromViewed, getLastViewedFact]);
 
+  const getFactForCurrentId = useCallback(() => {
+    if (!id.current) {
+      return;
+    }
+    const content = getFactById(id.current)?.content;
+    if (!content) {
+      return;
+    }
+    setFact(content);
+    viewed(content, id.current);
+    setIsLoading(false);
+    setIsSuccess(true);
+    setIsError(false);
+  }, [viewed, getFactById]);
+
   useEffect(() => {
     if (id.current) {
-      const content = getFactById(id.current)?.content;
-      if (content) {
-        setFact(content);
-        viewed(content, id.current);
-        id.current = undefined;
-        setIsLoading(false);
-        setIsSuccess(true);
-        setIsError(false);
-        return;
-      }
+      getFactForCurrentId();
+      id.current = undefined;
+      return;
     }
     onFetchFact();
   }, [id, onFetchFact]);

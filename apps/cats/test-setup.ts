@@ -14,7 +14,7 @@ jest.mock('@react-navigation/native', () => {
     }),
     useRoute: () => ({
       params: {
-        id: '123',
+        id: '',
       },
     }),
   };
