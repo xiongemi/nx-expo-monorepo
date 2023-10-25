@@ -4,3 +4,4 @@
 /coverage
 .expo/
 web-build/
+/.nx/cache

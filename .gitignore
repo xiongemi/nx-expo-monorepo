@@ -55,3 +55,4 @@ web-build/
 
 apps/cats-e2e/artifacts
 apps/dogs-e2e/artifacts
+.nx/cache

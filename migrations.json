@@ -1,19 +1,18 @@
 {
   "migrations": [
     {
-      "cli": "nx",
-      "version": "16.8.0-beta.3",
-      "description": "Escape $ in env variables",
-      "implementation": "./src/migrations/update-16-8-0/escape-dollar-sign-env-variables",
+      "version": "17.0.0-rc.1",
+      "description": "Migration for v17.0.0-rc.1",
+      "implementation": "./src/migrations/update-17-0-0/rm-default-collection-npm-scope",
       "package": "nx",
-      "name": "16.8.0-escape-dollar-sign-env"
+      "name": "rm-default-collection-npm-scope"
     },
     {
-      "version": "16.8.0",
-      "description": "update-16-8-0-add-ignored-files",
-      "implementation": "./src/migrations/update-16-8-0-add-ignored-files/update-16-8-0-add-ignored-files",
-      "package": "@nx/linter",
-      "name": "update-16-8-0-add-ignored-files"
+      "version": "17.0.0-beta.7",
+      "description": "update-17-0-0-rename-to-eslint",
+      "implementation": "./src/migrations/update-17-0-0-rename-to-eslint/update-17-0-0-rename-to-eslint",
+      "package": "@nx/eslint",
+      "name": "update-17-0-0-rename-to-eslint"
     }
   ]
 }
