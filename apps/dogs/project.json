@@ -39,12 +39,6 @@
       "executor": "@nx/expo:build-list",
       "options": {}
     },
-    "download": {
-      "executor": "@nx/expo:download",
-      "options": {
-        "output": "apps/dogs/dist"
-      }
-    },
     "sync-deps": {
       "executor": "@nx/expo:sync-deps",
       "options": {}
