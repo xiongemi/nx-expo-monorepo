@@ -50,12 +50,6 @@
       "executor": "@nx/expo:build-list",
       "options": {}
     },
-    "download": {
-      "executor": "@nx/expo:download",
-      "options": {
-        "output": "apps/cats/dist"
-      }
-    },
     "sync-deps": {
       "executor": "@nx/expo:sync-deps",
       "options": {}
@@ -93,7 +87,8 @@
       "executor": "@nx/expo:export",
       "options": {
         "platform": "web",
-        "bundler": "metro"
+        "bundler": "metro",
+        "outputDir": "../../dist/apps/cats/web"
       }
     },
     "lint": {
