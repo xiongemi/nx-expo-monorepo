@@ -14,7 +14,7 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx start cats"
+        "command": "nx start cats --web"
       }
     },
     "run-ios": {
@@ -78,7 +78,6 @@
     "export": {
       "executor": "@nx/expo:export",
       "options": {
-        "platform": "all",
         "outputDir": "../../dist/apps/cats"
       },
       "dependsOn": ["ensure-symlink", "sync-deps"]
@@ -86,8 +85,7 @@
     "export-web": {
       "executor": "@nx/expo:export",
       "options": {
-        "platform": "web",
-        "bundler": "metro",
+        "bundler": "webpack",
         "outputDir": "../../dist/apps/cats/web"
       }
     },

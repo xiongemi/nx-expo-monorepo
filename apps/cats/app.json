@@ -36,8 +36,7 @@
       },
       "build": {
         "publicUrl": "nx-expo-monorepo"
-      },
-      "bundler": "metro"
+      }
     },
     "plugins": [
       [
