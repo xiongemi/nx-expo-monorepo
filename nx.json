@@ -45,5 +45,6 @@
       "!{projectRoot}/cypress.config.[jt]s"
     ],
     "sharedGlobals": []
-  }
+  },
+  "plugins": ["@nx/expo/plugin"]
 }
