@@ -15,7 +15,6 @@ describe('Should display a cat fact', () => {
   });
 
   it('should display a cat fact', () => {
-    cy.get('[data-testid="carousel-card-content"]').should('exist');
     cy.get('[data-testid="carousel-card-content"]').contains(
       'A cat\u2019s heart beats nearly twice as fast as a human heart, at 110 to 140 beats a minute.'
     );

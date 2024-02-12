@@ -1,3 +1,9 @@
 {
-  "name": "dogs-cypress"
+  "name": "dogs-cypress",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
 }

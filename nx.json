@@ -46,5 +46,5 @@
     ],
     "sharedGlobals": []
   },
-  "plugins": ["@nx/expo/plugin"]
+  "plugins": ["@nx/expo/plugin", "@nx/cypress/plugin"]
 }
