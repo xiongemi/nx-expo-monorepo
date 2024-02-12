@@ -1,0 +1,17 @@
+{
+  "name": "cats-cypress",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/cats-cypress/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "cats:serve"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -50,7 +50,8 @@
     "react-native-screens": "*",
     "react-native-svg": "*",
     "react-native-web": "*",
-    "tslib": "*"
+    "tslib": "*",
+    "@nx/cypress": "*"
   },
   "devDependencies": {
     "@config-plugins/detox": "*",
@@ -94,6 +95,11 @@
     "ts-node": "*",
     "typescript": "*",
     "metro-cache": "*",
-    "metro": "*"
+    "metro": "*",
+    "@swc-node/register": "*",
+    "@swc/core": "*",
+    "@swc/helpers": "*",
+    "cypress": "*",
+    "eslint-plugin-cypress": "*"
   }
 }

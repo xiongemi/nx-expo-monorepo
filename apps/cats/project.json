@@ -9,14 +9,12 @@
       "options": {
         "port": 8081
       },
-      "dependsOn": [
-        "sync-deps"
-      ]
+      "dependsOn": ["sync-deps"]
     },
     "serve": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/expo:serve",
       "options": {
-        "command": "nx start cats --web"
+        "port": 8081
       }
     },
     "run-ios": {
@@ -24,18 +22,14 @@
       "options": {
         "platform": "ios"
       },
-      "dependsOn": [
-        "sync-deps"
-      ]
+      "dependsOn": ["sync-deps"]
     },
     "run-android": {
       "executor": "@nx/expo:run",
       "options": {
         "platform": "android"
       },
-      "dependsOn": [
-        "sync-deps"
-      ]
+      "dependsOn": ["sync-deps"]
     },
     "build": {
       "executor": "@nx/expo:build",
@@ -63,9 +57,7 @@
     "prebuild": {
       "executor": "@nx/expo:prebuild",
       "options": {},
-      "dependsOn": [
-        "sync-deps"
-      ]
+      "dependsOn": ["sync-deps"]
     },
     "install": {
       "executor": "@nx/expo:install",
@@ -84,24 +76,16 @@
       "options": {
         "outputDir": "dist/apps/cats"
       },
-      "dependsOn": [
-        "sync-deps"
-      ],
-      "outputs": [
-        "{options.outputDir}"
-      ]
+      "dependsOn": ["sync-deps"],
+      "outputs": ["{options.outputDir}"]
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/cats/jest.config.ts"
       }
