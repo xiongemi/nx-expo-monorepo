@@ -9,7 +9,9 @@
       "options": {
         "port": 8081
       },
-      "dependsOn": ["ensure-symlink", "sync-deps"]
+      "dependsOn": [
+        "sync-deps"
+      ]
     },
     "serve": {
       "executor": "nx:run-commands",
@@ -22,14 +24,18 @@
       "options": {
         "platform": "ios"
       },
-      "dependsOn": ["ensure-symlink", "sync-deps"]
+      "dependsOn": [
+        "sync-deps"
+      ]
     },
     "run-android": {
       "executor": "@nx/expo:run",
       "options": {
         "platform": "android"
       },
-      "dependsOn": ["ensure-symlink", "sync-deps"]
+      "dependsOn": [
+        "sync-deps"
+      ]
     },
     "build": {
       "executor": "@nx/expo:build",
@@ -54,14 +60,12 @@
       "executor": "@nx/expo:sync-deps",
       "options": {}
     },
-    "ensure-symlink": {
-      "executor": "@nx/expo:ensure-symlink",
-      "options": {}
-    },
     "prebuild": {
       "executor": "@nx/expo:prebuild",
       "options": {},
-      "dependsOn": ["ensure-symlink", "sync-deps"]
+      "dependsOn": [
+        "sync-deps"
+      ]
     },
     "install": {
       "executor": "@nx/expo:install",
@@ -78,24 +82,26 @@
     "export": {
       "executor": "@nx/expo:export",
       "options": {
-        "outputDir": "../../dist/apps/cats"
+        "outputDir": "dist/apps/cats"
       },
-      "dependsOn": ["ensure-symlink", "sync-deps"]
-    },
-    "export-web": {
-      "executor": "@nx/expo:export",
-      "options": {
-        "bundler": "webpack",
-        "outputDir": "../../dist/apps/cats/web"
-      }
+      "dependsOn": [
+        "sync-deps"
+      ],
+      "outputs": [
+        "{options.outputDir}"
+      ]
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "outputs": [
+        "{options.outputFile}"
+      ]
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/cats/jest.config.ts"
       }

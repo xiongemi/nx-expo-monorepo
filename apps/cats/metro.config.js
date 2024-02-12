@@ -1,9 +1,6 @@
-
 const { withNxMetro } = require('@nx/expo');
 const { getDefaultConfig } = require('@expo/metro-config');
 const { mergeConfig } = require('metro-config');
-const exclusionList = require('metro-config/src/defaults/exclusionList');
-const { workspaceRoot, joinPathFragments } = require('@nx/devkit');
 
 const defaultConfig = getDefaultConfig(__dirname);
 const { assetExts, sourceExts } = defaultConfig.resolver;
@@ -21,17 +18,13 @@ const customConfig = {
   resolver: {
     assetExts: assetExts.filter((ext) => ext !== 'svg'),
     sourceExts: [...sourceExts, 'svg'],
-    blockList: exclusionList([joinPathFragments(workspaceRoot, 'dist')]),
-    unstable_enableSymlinks: true,
-    unstable_enablePackageExports: true,
   },
 };
-
 
 module.exports = withNxMetro(mergeConfig(defaultConfig, customConfig), {
   // Change this to true to see debugging info.
   // Useful if you have issues resolving modules
-  debug: true,
+  debug: false,
   // all the file extensions used for imports other than 'ts', 'tsx', 'js', 'jsx', 'json'
   extensions: [],
   // Specify folders to watch, in addition to Nx defaults (workspace libraries and node_modules)
