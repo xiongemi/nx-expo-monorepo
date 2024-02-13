@@ -46,5 +46,20 @@
     ],
     "sharedGlobals": []
   },
-  "plugins": ["@nx/expo/plugin", "@nx/cypress/plugin"]
+  "plugins": [
+    "@nx/expo/plugin",
+    "@nx/cypress/plugin",
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ]
 }
