@@ -8,8 +8,8 @@ This workspace is created using [@nx/expo]([sketchpad 2](https://nx.dev/packages
 
 ## Workspace structure
 It contains 2 apps:
-- cats and its e2e
-- dogs and its e2e
+- cats and its e2e (cypress/playwright)
+- dogs and its e2e (cypress/playwright)
 
 4 libs:
 - models
@@ -27,6 +27,9 @@ It contains 2 apps:
 - `nx lint cats` to lint the cats app
 - `nx lint dogs` to lint the dogs app
 - `npm run deploy` to deploy the cats app to github page
+- `nx e2e cats-cypress` to run cypress e2e tests on cats app
+- `nx e2e cats-playwright` to run playwright e2e tests on cats app
+- `nx e2e dogs-cypress` to run cypress e2e tests on dogs app
 
 ## Understand this workspace
 

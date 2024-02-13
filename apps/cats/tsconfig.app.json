@@ -2,13 +2,21 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": ["node"]
+    "types": ["node"],
+    
   },
   "exclude": [
     "jest.config.ts",
     "**/*.spec.ts",
     "**/*.spec.tsx",
-    "test-setup.ts"
+    "test-setup.ts",
+    "**/*.stories.ts",
+    "**/*.stories.js",
+    "**/*.stories.jsx",
+    "**/*.stories.tsx",
+    ".storybook/**/*.js",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
   ],
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", ".babelrc.js"]
 }

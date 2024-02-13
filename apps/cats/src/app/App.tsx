@@ -18,7 +18,7 @@ import Facts from './facts/facts';
 import Bookmarks from './bookmarks/bookmarks';
 import { AppRoutes } from './app-routes';
 
-const App = () => {
+export const App = () => {
   const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
