@@ -8,7 +8,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,
-    ,
     "declaration": true
   },
   "files": ["../../node_modules/@nx/expo/typings/svg.d.ts"],

@@ -1,6 +1,6 @@
 # NxExpoMonorepo
 
-This workspace is created using [@nx/expo]([sketchpad 2](https://nx.dev/packages/expo)) ([Nx](https://nx.dev) and [Expo](https://expo.io/)).
+This workspace is created using [@nx/expo](https://nx.dev/packages/expo) ([Nx](https://nx.dev) and [Expo](https://expo.io/)).
 
 <a href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -17,6 +17,10 @@ It contains 2 apps:
 - states: redux state management
 - ui
 
+<img src="https://github.com/xiongemi/nx-expo-monorepo/blob/main/screenshots/cats.png">
+
+<img src="https://github.com/xiongemi/nx-expo-monorepo/blob/main/screenshots/dogs.png">
+
 ## Commands
 - `nx start cats` to start the cats app
 - `nx start dogs` to start the dogs app
@@ -30,6 +34,9 @@ It contains 2 apps:
 - `nx e2e cats-cypress` to run cypress e2e tests on cats app
 - `nx e2e cats-playwright` to run playwright e2e tests on cats app
 - `nx e2e dogs-cypress` to run cypress e2e tests on dogs app
+- `nx e2e dogs-playwright` to run playwright e2e tests on dogs app
+- `nx storybook cats` to serve storybook on cats app
+- `nx storybook ui` to serve storybook on ui library
 
 ## Understand this workspace
 
