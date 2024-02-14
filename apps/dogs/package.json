@@ -87,5 +87,8 @@
     "ts-jest": "*",
     "ts-node": "*",
     "typescript": "*"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

@@ -59,7 +59,6 @@
     "sharedGlobals": []
   },
   "plugins": [
-    "@nx/expo/plugin",
     "@nx/cypress/plugin",
     {
       "plugin": "@nx/playwright/plugin",
@@ -71,6 +70,20 @@
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/expo/plugin",
+      "options": {
+        "startTargetName": "start",
+        "serveTargetName": "serve",
+        "runIosTargetName": "run-ios",
+        "runAndroidTargetName": "run-android",
+        "exportTargetName": "export",
+        "prebuildTargetName": "prebuild",
+        "installTargetName": "install",
+        "buildTargetName": "build",
+        "submitTargetName": "submit"
       }
     }
   ],
