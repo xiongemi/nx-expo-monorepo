@@ -17,9 +17,9 @@ It contains 2 apps:
 - states: redux state management
 - ui
 
-<img src="https://github.com/xiongemi/nx-expo-monorepo/blob/main/screenshots/cats.png">
+<img src="https://github.com/xiongemi/nx-expo-monorepo/blob/main/screenshots/cats.png?raw=true">
 
-<img src="https://github.com/xiongemi/nx-expo-monorepo/blob/main/screenshots/dogs.png">
+<img src="https://github.com/xiongemi/nx-expo-monorepo/blob/main/screenshots/dogs.png?raw=true">
 
 ## Commands
 - `nx start cats` to start the cats app
