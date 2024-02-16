@@ -1,18 +1,22 @@
 import { TestWrapper } from '@nx-expo-monorepo/queries/test-wrapper';
 import { renderHook, waitFor } from '@testing-library/react-native';
 import { useCatFact } from './use-cat-fact';
-import fetchMock from 'jest-fetch-mock';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+
+// This sets the mock adapter on the default instance
+const mockAxios = new MockAdapter(axios);
 
 describe('useCatFact', () => {
   afterEach(() => {
-    jest.resetAllMocks();
+    mockAxios.reset();
   });
 
   it('status should be success', async () => {
     // simulating a server response
-    fetchMock.mockResponseOnce(JSON.stringify({
+    mockAxios.onGet().replyOnce(200, {
       fact: 'random cat fact',
-    }));
+    });
 
     const { result } = renderHook(() => useCatFact(), {
       wrapper: TestWrapper,
@@ -26,7 +30,7 @@ describe('useCatFact', () => {
   });
 
   it('status should be error', async () => {
-   fetchMock.mockRejectOnce();
+    mockAxios.onGet().replyOnce(500);
 
     const { result } = renderHook(() => useCatFact(), {
       wrapper: TestWrapper,
