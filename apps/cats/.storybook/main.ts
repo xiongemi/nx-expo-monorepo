@@ -7,12 +7,13 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@nx/react/plugins/storybook',
+    '@storybook/addon-react-native-web'
   ],
   framework: {
     name: '@storybook/react-webpack5',
     options: {},
   },
-  webpackFinal: async (config) => {
+ /*  webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
@@ -40,7 +41,7 @@ const config: StorybookConfig = {
       }
     }
     return config;
-  },
+  },*/
 };
 
 export default config;
