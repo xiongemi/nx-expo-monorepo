@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/dogs/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
@@ -11,6 +12,5 @@
         "jestConfig": "apps/dogs/jest.config.ts"
       }
     }
-  },
-  "tags": []
+  }
 }

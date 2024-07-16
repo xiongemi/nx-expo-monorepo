@@ -36,7 +36,6 @@
     "jest-fetch-mock": "*",
     "@nx/webpack": "*",
     "@nx/react": "*",
-    "@expo/webpack-config": "*",
     "@nx/devkit": "*",
     "tsconfig-paths-webpack-plugin": "*",
     "@react-native-masked-view/masked-view": "*",
@@ -51,7 +50,17 @@
     "react-native-svg": "*",
     "react-native-web": "*",
     "tslib": "*",
-    "@nx/cypress": "*"
+    "@nx/cypress": "*",
+    "@storybook/react-webpack5": "*",
+    "chalk": "*",
+    "enhanced-resolve": "*",
+    "fs-extra": "*",
+    "metro-resolver": "*",
+    "node-fetch": "*",
+    "tsconfig-paths": "*",
+    "@storybook/react": "*",
+    "@storybook/testing-library": "*",
+    "@storybook/jest": "*"
   },
   "devDependencies": {
     "@config-plugins/detox": "*",

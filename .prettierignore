@@ -5,3 +5,4 @@
 .expo/
 web-build/
 /.nx/cache
+/.nx/workspace-data

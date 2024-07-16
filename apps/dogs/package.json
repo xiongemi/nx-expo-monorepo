@@ -46,7 +46,6 @@
     "@config-plugins/detox": "*",
     "@expo/cli": "*",
     "@expo/metro-runtime": "*",
-    "@expo/webpack-config": "*",
     "@nx/detox": "*",
     "@nx/eslint": "*",
     "@nx/eslint-plugin": "*",
