@@ -1,7 +1,7 @@
 import { AppRoutes } from './app-routes';
 
 export type RootStackParamList = {
-  [AppRoutes.catFacts]: {id?: string};
+  [AppRoutes.catFacts]: { id?: string };
   [AppRoutes.bookmarks]: undefined;
 };
 

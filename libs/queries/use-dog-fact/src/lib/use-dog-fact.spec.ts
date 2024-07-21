@@ -21,10 +21,8 @@ describe('useDogFact', () => {
         },
       ],
     };
-     // simulating a server response
-     fetchMock.mockResponse(
-      JSON.stringify(responseObj)
-    );
+    // simulating a server response
+    fetchMock.mockResponse(JSON.stringify(responseObj));
     const { result } = renderHook(() => useDogFact(), {
       wrapper: TestWrapper,
     });
@@ -52,7 +50,7 @@ describe('useDogFact', () => {
 
     try {
       result.current.refetch();
-    } catch(actual) {
+    } catch (actual) {
       expect(actual).toEqual(response);
     }
   });

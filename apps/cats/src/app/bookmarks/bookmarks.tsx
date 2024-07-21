@@ -22,7 +22,7 @@ export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
     navigation.setOptions({
       headerRight: () => (
         <Button
-          icon= {edit ? 'check' : 'book-edit'}
+          icon={edit ? 'check' : 'book-edit'}
           onPress={() => {
             setEdit(!edit);
           }}

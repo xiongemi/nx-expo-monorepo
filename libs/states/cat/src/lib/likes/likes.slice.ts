@@ -51,5 +51,5 @@ const getLikeById = (id: string) =>
 
 export const likesSelectors = {
   selectAllLikes,
-  getLikeById
+  getLikeById,
 };

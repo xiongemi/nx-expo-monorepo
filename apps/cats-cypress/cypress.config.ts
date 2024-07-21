@@ -4,7 +4,10 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    ...nxE2EPreset(__filename, { cypressDir: 'cypress' }),
+    ...nxE2EPreset(__filename, {
+      cypressDir: 'cypress',
+      webServerCommands: { default: 'nx run cats:serve' },
+    }),
     baseUrl: 'http://localhost:8081',
   },
 });

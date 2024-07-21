@@ -1,7 +1,7 @@
 import { AppRoutes } from './app-routes';
 
 export type RootStackParamList = {
-  [AppRoutes.dogFacts]: {id?: string};
+  [AppRoutes.dogFacts]: { id?: string };
   [AppRoutes.bookmarks]: undefined;
 };
 
