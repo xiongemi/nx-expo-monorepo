@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CarouselPage } from './carousel-page';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from '@storybook/test';
+import { expect } from '@storybook/test';
 
 const meta: Meta<typeof CarouselPage> = {
   component: CarouselPage,

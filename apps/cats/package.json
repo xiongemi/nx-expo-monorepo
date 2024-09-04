@@ -59,8 +59,8 @@
     "node-fetch": "*",
     "tsconfig-paths": "*",
     "@storybook/react": "*",
-    "@storybook/testing-library": "*",
-    "@storybook/jest": "*"
+    "@storybook/test": "*",
+    "@storybook/test": "*"
   },
   "devDependencies": {
     "@config-plugins/detox": "*",

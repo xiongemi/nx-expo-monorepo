@@ -38,6 +38,9 @@
         "{projectRoot}/.storybook/**/*",
         "{projectRoot}/tsconfig.storybook.json"
       ]
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
     }
   },
   "namedInputs": {
@@ -86,7 +89,8 @@
         "buildTargetName": "build",
         "submitTargetName": "submit"
       }
-    }
+    },
+    "@nx/storybook/plugin"
   ],
   "tasksRunnerOptions": {
     "default": {

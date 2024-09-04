@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Bookmarks } from './bookmarks';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from '@storybook/test';
+import { expect } from '@storybook/test';
 import { NavigationDecorator } from '../../../.storybook/mocks/navigation-decorator';
 
 const meta: Meta<typeof Bookmarks> = {
